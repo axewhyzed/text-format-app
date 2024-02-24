@@ -1,3 +1,93 @@
+<div class="container">
+  <div class="btn-bar">
+    <button class="edit-btns" (click)="toggleFormat('bold')">Bold</button>
+    <button class="edit-btns" (click)="toggleFormat('italic')">Italic</button>
+    <button class="edit-btns" (click)="toggleFormat('underline')">
+      Underline
+    </button>
+    <button class="edit-btns" (click)="toggleFormat('strikethrough')">
+      Strikethrough
+    </button>
+
+    <input
+      type="color"
+      class="edit-btns"
+      (input)="changeTextColor($any($event.target).value)"
+    />
+
+    <select
+      #fontSizeSelect
+      class="edit-btns"
+      (change)="changeFontSize(fontSizeSelect.value)"
+    >
+      <option value="1">12px</option>
+      <option value="2">14px</option>
+      <option value="3">16px</option>
+      <option value="4">18px</option>
+      <option value="5">24px</option>
+      <option value="6">32px</option>
+      <option value="7">48px</option>
+      <!-- Add more font sizes as needed -->
+    </select>
+
+    <select
+      #fontFamilySelect
+      class="edit-btns"
+      (change)="changeFontFamily(fontFamilySelect.value)"
+    >
+      <option value="Arial" style="font-family: Arial">Arial</option>
+      <option
+        value="'Brush Script MT', cursive"
+        style="font-family: Brush Script MT"
+      >
+        Brush Script MT
+      </option>
+      <option value="Calibri" style="font-family: Calibri">Calibri</option>
+      <option value="Cambria" style="font-family: Cambria">Cambria</option>
+      <option value="Comic Sans MS" style="font-family: Comic Sans MS">
+        Comic Sans MS
+      </option>
+      <option value="Courier New" style="font-family: Courier New">
+        Courier New
+      </option>
+      <option value="Franklin Gothic" style="font-family: Franklin Gothic">
+        Franklin Gothic
+      </option>
+      <option value="Garamond" style="font-family: Garamond">Garamond</option>
+      <option value="Georgia" style="font-family: Georgia">Georgia</option>
+      <option value="Goudy Old Style" style="font-family: Goudy Old Style">
+        Goudy Old Style
+      </option>
+      <option value="Helvetica" style="font-family: Helvetica">
+        Helvetica
+      </option>
+      <option value="Impact" style="font-family: Impact">Impact</option>
+      <option
+        value="Microsoft Sans Serif"
+        style="font-family: Microsoft Sans Serif"
+      >
+        MS Sans Serif
+      </option>
+      <option value="Perpetua" style="font-family: Perpetua">Perpetua</option>
+      <option value="Rockwell" style="font-family: Rockwell">Rockwell</option>
+      <option value="Tahoma" style="font-family: Tahoma">Tahoma</option>
+      <option value="Times New Roman" style="font-family: Times New Roman">
+        Times New Roman
+      </option>
+      <option value="Verdana" style="font-family: Verdana">Verdana</option>
+      <!-- Add more font families as needed -->
+    </select>
+  </div>
+
+  <div class="editor-container">
+    <div class="editor-area" contenteditable="true" #editableDiv>
+      <!-- Default size is 16px in this currently-->
+      Select some text and use the buttons to format it... <br />
+      Or write your own text
+    </div>
+  </div>
+</div>
+
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -7,7 +97,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
+<!-- <style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
     --electric-violet: oklch(53.18% 0.28 296.97);
@@ -322,7 +412,7 @@
       </div>
     </div>
   </div>
-</main>
+</main> -->
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
@@ -331,6 +421,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 
 <router-outlet></router-outlet>
